@@ -26,7 +26,8 @@ DROP TABLE IF EXISTS `storagedb`.`product_dim` ;
 CREATE TABLE IF NOT EXISTS `storagedb`.`product_dim` (
   `ProductID` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(150) NULL,
-  `update_date` DATETIME NULL, 
+  `update_date` DATETIME NULL,
+  `price` DOUBLE NULL,
   `buy_price` DOUBLE NULL,
   PRIMARY KEY (`ProductID`))
 ENGINE = InnoDB;
@@ -116,6 +117,7 @@ CREATE TABLE IF NOT EXISTS `storagedb`.`sales_fact` (
   `shop_dim_shopID` INT NOT NULL,
   `order_dim_orderID` INT NOT NULL,
   `order_productID` INT NOT NULL,
+  `discount` INT NULL,
   `quantity` INT NULL,
   `sell_price` DOUBLE NULL,
   `product_price` DOUBLE NULL,
