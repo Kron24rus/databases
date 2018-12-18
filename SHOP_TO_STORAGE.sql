@@ -4,9 +4,10 @@ insert into storagedb.category_dim (CategoryID, name)
 select CategoryID, name from shopdb.category
 where CategoryID not in (select CategoryID from storagedb.category_dim);
 
-insert into storagedb.product_dim (ProductID, name)
-select ProductID, name from shopdb.product
-where ProductID not in (select ProductID from storagedb.product_dim);
+insert into storagedb.product_dim (ProductID, name, update_date, buy_price)
+select p.ProductID, p.name, p.update_date, p.buy_price from shopdb.product p
+where p.ProductID not in (select ProductID from storagedb.product_dim)
+on duplicate key update update_date = p.update_date;
 
 insert into storagedb.provider_dim (ProviderID, name, contact)
 select ProviderID, name, contact from shopdb.provider
@@ -38,8 +39,8 @@ where od.creation_date not in (select date_time from storagedb.date_dim);
 
 drop function IsHolidayDate;
 
-insert into storagedb.sales_fact (product_dim_productID, provider_dim_providerID, category_dim_categoryID, order_dim_orderID, quantity, sell_price, product_price, shop_dim_shopID, date_dim_dateID)
-(select p.ProductID, pr.ProviderID, cat.CategoryID, ord.OrderID, op.quantity, op.sell_price, p.price, 1, dd.DateID
+insert into storagedb.sales_fact (product_dim_productID, provider_dim_providerID, category_dim_categoryID, order_dim_orderID, quantity, sell_price, product_price, shop_dim_shopID, date_dim_dateID, order_productID)
+(select p.ProductID, pr.ProviderID, cat.CategoryID, ord.OrderID, op.quantity, op.sell_price, p.price, 1, dd.DateID, op.OrderProductID
 from shopdb.order_product op 
 inner join shopdb.product p on op.ProductID = p.ProductID
 inner join shopdb.order ord on ord.OrderID = op.OrderID

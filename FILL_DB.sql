@@ -1,13 +1,13 @@
-insert into shopdb.provider (ProviderID, name, contact, creation_date)
+insert into shopdb.provider (ProviderID, name, contact)
 values 
-		(1, 'Colors INC', 'Saint-Petersburg, New Street 18, tel: 212-22-15', '2016-05-24 14:00'),
-        (2, 'New Horizons', 'Moscow, Old Street 45, tel: 243-33-12', '2017-03-17 14:00'),
-        (3, 'War Machines', 'Krasnoyarsk, Cosmo Street 45a', '2015-02-11 14:00'),
-        (4, 'Junk Food', 'Saint-Petersburg, Sennaya Ploshad 4', '2009-01-21 14:00'),
-        (5, 'Musical Shop', 'Berlin, Main Street 1', '2018-11-03 14:00'),
-        (6, 'Video Shop', 'Canada, Winter Street 31', '2018-03-07 14:00'),
-        (7, 'Old Books', 'Minsk, Potato Street 7', '2014-05-24 14:00'),
-        (8, 'Mental Relax', 'Sochi, New Street 14', '2012-12-12 14:00')
+		(1, 'Colors INC', 'Saint-Petersburg, New Street 18, tel: 212-22-15'),
+        (2, 'New Horizons', 'Moscow, Old Street 45, tel: 243-33-12'),
+        (3, 'War Machines', 'Krasnoyarsk, Cosmo Street 45a'),
+        (4, 'Junk Food', 'Saint-Petersburg, Sennaya Ploshad 4'),
+        (5, 'Musical Shop', 'Berlin, Main Street 1'),
+        (6, 'Video Shop', 'Canada, Winter Street 31'),
+        (7, 'Old Books', 'Minsk, Potato Street 7'),
+        (8, 'Mental Relax', 'Sochi, New Street 14')
 on duplicate key update ProviderID = ProviderID;
 
 set @colorsinc = 1;
@@ -19,18 +19,18 @@ set @videoshop = 6;
 set @oldbooks = 7;
 set @mentalrelax = 8;
 
-insert into shopdb.category (CategoryID, name, creation_date)
+insert into shopdb.category (CategoryID, name)
 values 
-		(1, 'dye', '2014-02-03 09:00'),
-        (2, 'musical instruments', '2017-02-03 09:00'),
-        (3, 'weapons', '2009-02-03 09:00'),
-        (4, 'soothing', '2018-05-05 09:00'),
-        (5, 'food', '2017-03-03 09:00'),
-        (6, 'drinks', '2017-03-03 09:00'),
-        (7, 'books', '2009-03-03 09:00'),
-        (8, 'education', '2018-11-11 09:00'),
-        (9, 'entertainment', '2017-11-12 09:00'),
-        (10, 'sport', '2018-12-12 09:00')
+		(1, 'dye'),
+        (2, 'musical instruments'),
+        (3, 'weapons'),
+        (4, 'soothing'),
+        (5, 'food'),
+        (6, 'drinks'),
+        (7, 'books'),
+        (8, 'education'),
+        (9, 'entertainment'),
+        (10, 'sport')
 on duplicate key update CategoryID = CategoryID;
 
 set @dye = 1;

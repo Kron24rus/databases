@@ -26,6 +26,8 @@ DROP TABLE IF EXISTS `storagedb`.`product_dim` ;
 CREATE TABLE IF NOT EXISTS `storagedb`.`product_dim` (
   `ProductID` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(150) NULL,
+  `update_date` DATETIME NULL, 
+  `buy_price` DOUBLE NULL,
   PRIMARY KEY (`ProductID`))
 ENGINE = InnoDB;
 
@@ -113,6 +115,7 @@ CREATE TABLE IF NOT EXISTS `storagedb`.`sales_fact` (
   `category_dim_categoryID` INT NOT NULL,
   `shop_dim_shopID` INT NOT NULL,
   `order_dim_orderID` INT NOT NULL,
+  `order_productID` INT NOT NULL,
   `quantity` INT NULL,
   `sell_price` DOUBLE NULL,
   `product_price` DOUBLE NULL,
@@ -156,7 +159,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `storagedb`.`shop_popular_categories` ;
 
 CREATE TABLE IF NOT EXISTS `storagedb`.`shop_popular_categories` (
-  `PopularCategoriesID` INT NOT NULL,
+  `PopularCategoriesID` INT NOT NULL AUTO_INCREMENT,
   `shop_name` VARCHAR(150) NULL,
   `shop_address` VARCHAR(150) NULL,
   `category_name` VARCHAR(150) NULL,
