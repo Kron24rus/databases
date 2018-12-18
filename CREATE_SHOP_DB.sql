@@ -24,7 +24,7 @@ USE `shopdb` ;
 DROP TABLE IF EXISTS `shopdb`.`order` ;
 
 CREATE TABLE IF NOT EXISTS `shopdb`.`order` (
-  `OrderID` INT NOT NULL,
+  `OrderID` INT NOT NULL AUTO_INCREMENT,
   `total_cost` DOUBLE NULL,
   `creation_date` DATETIME NULL,
   PRIMARY KEY (`OrderID`))
@@ -37,7 +37,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `shopdb`.`category` ;
 
 CREATE TABLE IF NOT EXISTS `shopdb`.`category` (
-  `CategoryID` INT NOT NULL,
+  `CategoryID` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(150) NULL,
   `creation_date` DATETIME NULL,
   PRIMARY KEY (`CategoryID`))
@@ -50,7 +50,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `shopdb`.`provider` ;
 
 CREATE TABLE IF NOT EXISTS `shopdb`.`provider` (
-  `ProviderID` INT NOT NULL,
+  `ProviderID` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(150) NULL,
   `contact` VARCHAR(150) NULL,
   `creation_date` DATETIME NULL,
@@ -64,7 +64,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `shopdb`.`product` ;
 
 CREATE TABLE IF NOT EXISTS `shopdb`.`product` (
-  `ProductID` INT NOT NULL,
+  `ProductID` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(150) NULL,
   `price` DOUBLE NULL,
   `buy_price` DOUBLE NULL,
@@ -91,7 +91,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `shopdb`.`order_product` ;
 
 CREATE TABLE IF NOT EXISTS `shopdb`.`order_product` (
-  `OrderProductID` INT NOT NULL,
+  `OrderProductID` INT NOT NULL AUTO_INCREMENT,
   `quantity` INT NULL,
   `sell_price` DOUBLE NULL,
   `discount` INT NULL,

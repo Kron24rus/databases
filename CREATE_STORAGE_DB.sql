@@ -24,7 +24,7 @@ USE `storagedb` ;
 DROP TABLE IF EXISTS `storagedb`.`product_dim` ;
 
 CREATE TABLE IF NOT EXISTS `storagedb`.`product_dim` (
-  `ProductID` INT NOT NULL,
+  `ProductID` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(150) NULL,
   PRIMARY KEY (`ProductID`))
 ENGINE = InnoDB;
@@ -36,7 +36,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `storagedb`.`provider_dim` ;
 
 CREATE TABLE IF NOT EXISTS `storagedb`.`provider_dim` (
-  `ProviderID` INT NOT NULL,
+  `ProviderID` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(150) NULL,
   `contact` VARCHAR(150) NULL,
   PRIMARY KEY (`ProviderID`))
@@ -49,7 +49,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `storagedb`.`date_dim` ;
 
 CREATE TABLE IF NOT EXISTS `storagedb`.`date_dim` (
-  `DateID` INT NOT NULL,
+  `DateID` INT NOT NULL AUTO_INCREMENT,
   `year` INT NULL,
   `month` INT NULL,
   `day_of_month` INT NULL,
@@ -66,7 +66,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `storagedb`.`category_dim` ;
 
 CREATE TABLE IF NOT EXISTS `storagedb`.`category_dim` (
-  `CategoryID` INT NOT NULL,
+  `CategoryID` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(150) NULL,
   PRIMARY KEY (`CategoryID`))
 ENGINE = InnoDB;
@@ -78,7 +78,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `storagedb`.`shop_dim` ;
 
 CREATE TABLE IF NOT EXISTS `storagedb`.`shop_dim` (
-  `ShopID` INT NOT NULL,
+  `ShopID` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(150) NULL,
   `city` VARCHAR(150) NULL,
   `address` VARCHAR(150) NULL,
@@ -94,7 +94,7 @@ DROP TABLE IF EXISTS `storagedb`.`order_dim` ;
 
 CREATE TABLE IF NOT EXISTS `storagedb`.`order_dim` (
   `ShopOrderID` INT NULL,
-  `OrderID` INT NOT NULL,
+  `OrderID` INT NOT NULL AUTO_INCREMENT,
   `creation_date` DATETIME NULL,
   `total_cost` DOUBLE NULL,
   PRIMARY KEY (`OrderID`))
